@@ -1,0 +1,52 @@
+basePath: /
+info:
+  contact: {}
+  description: API de microservicio para gestión de workshops
+  title: Workshop API
+  version: "1.0"
+paths:
+  /health:
+    get:
+      description: Retorna un mensaje que indica que el microservicio está en funcionamiento
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Verifica el estado del microservicio
+      tags:
+      - Health
+  /workshops/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Elimina un workshop basado en su ID
+      parameters:
+      - description: ID del Workshop
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Workshop deleted successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Workshop not found
+          schema:
+            type: string
+      summary: Elimina un workshop existente
+      tags:
+      - Workshops
+swagger: "2.0"
