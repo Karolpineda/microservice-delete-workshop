@@ -36,7 +36,7 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8097"
+		port = "8099"
 	}
 
 	fmt.Printf("Servidor iniciado en puerto %s\n", port)
